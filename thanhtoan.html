@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="img/sweet-ice-cream-icon-cartoon-illustration-vector-removebg-preview.png" rel="icon">
+    <title>ice - T shop</title>
+    <style>
+        body {
+            font-family: "Quicksand", sans-serif;
+            background-color:#F3F6FF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .payment-container {
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 400px;
+            border-radius: 8px;
+        }
+        .payment-container h2 {
+            text-align: center;
+        }
+        .input-field {
+            margin-bottom: 15px;
+        }
+        .input-field label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .input-field input, .input-field select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .input-field textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        .btn-pay {
+            width: 100%;
+            padding: 12px;
+            background-color: rgb(95, 168, 228);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn-pay:hover {
+            background-color: rgba(78, 171, 207, 0.8);
+        }
+        .total-price {
+            text-align: right;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+        <h2 style="font-size: 30px; color: pink;">THANH TOÁN</h2>
+        <form id="payment-form">
+            <div class="input-field">
+                <label for="full-name">Họ và tên</label>
+                <input type="text" id="full-name" placeholder="Nhập họ và tên" style="m">
+            </div>
+
+            <div class="input-field">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Nhập email" required>
+            </div>
+
+            <div class="input-field">
+                <label for="phone">Số điện thoại</label>
+                <input type="tel" id="phone" placeholder="Nhập số điện thoại" required>
+            </div>
+
+            <div class="input-field">
+                <label for="address">Địa chỉ</label>
+                <input type="text" id="address" placeholder="Nhập địa chỉ" required>
+            </div>
+
+            <div class="input-field">
+                <label for="city">Tỉnh/Thành phố</label>
+                <select id="city" required>
+                    <option value="">Chọn tỉnh thành</option>
+                    <option value="Hanoi">Hà Nội</option>
+                    <option value="HoChiMinh">TP.HCM</option>
+                    <option value="Danang">Đà Nẵng</option>
+                    <option value="Hue">Huế</option>
+                    <option value="CanTho">Cần Thơ</option>
+                    <!-- Thêm các tỉnh thành khác -->
+                </select>
+            </div>
+
+            <div class="input-field">
+                <label for="note">Ghi chú</label>
+                <textarea id="note" placeholder="Nhập ghi chú (nếu có)" rows="4"></textarea>
+            </div>
+
+          
+
+            <button type="submit" class="btn-pay">THANH TOÁN</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('payment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const fullName = document.getElementById('full-name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const city = document.getElementById('city').value;
+            const note = document.getElementById('note').value;
+
+            // Xử lý dữ liệu thanh toán ở đây (ví dụ gửi lên API thanh toán)
+            const paymentData = {
+                fullName,
+                email,
+                phone,
+                address,
+                city,
+                note,
+                totalAmount: '500,000 VND' // Số tiền cần thanh toán
+            };
+
+            // Gửi thông tin thanh toán đến backend hoặc cổng thanh toán
+            console.log(paymentData);
+            alert("Thanh toán thành công!");
+        });
+    </script>
+</body>
+</html>
